@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+ <center>
+	<h1>Predict Heart Stroke</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+	<table>
+	<tr>
+	<td>
+		<select name ="gender">
+		<option value = '-1'>Select Gender</option>
+		<option value = '0'>Female</option>
+		<option value = '1'>Male</option>
+		</select>
+		</td>
+		</tr>
+		<tr>
+	<td>
+        <input type="text" name="age" placeholder="age" required="required" />
+		<br/>
+		<select name ="hypertension">
+		<option value = '-1'>Do you have hypertension</option>
+		<option value = '0'>No</option>
+		<option value = '1'>Yes</option>
+		</select>
+		<!--<input type="text" name="hypertension" placeholder="hypertension" required="required" />-->
+		</td>
+		</tr>
+		<tr>
+	<td>
+		<select name ="heart_disease">
+		<option value = '-1'>Do you have heart disease</option>
+		<option value = '0'>No</option>
+		<option value = '1'>Yes</option>
+		</select>
+		<!--<input type="text" name="heart_disease" placeholder="heart_disease" required="required" />-->
+		</td>
+		</tr>
+		<tr>
+	<td>
+		<select name ="Residence_type">
+		<option value = '-1'>Residence type</option>
+		<option value = '0'>Rural</option>
+		<option value = '1'>Urban</option>
+		</select>
+
+<!--<input type="text" name="Residence_type" placeholder="Residence_type" required="required" />-->
+</td>
+		</tr>
+<tr>
+	<td>
+
+<input type="text" name="avg_glucose_level" placeholder="avg_glucose_level" required="required" />
+</td>
+		</tr>
+<tr>
+	<td>
+<input type="text" name="bmi" placeholder="bmi" required="required" />
+</td>
+		</tr>
+<tr>
+	<td>
+		<select name ="Govt_job">
+		<option value = '-1'>Do you have Gov job</option>
+		<option value = '0'>No</option>
+		<option value = '1'>Yes</option>
+		</select>
+<!--<input type="text" name="Govt_job" placeholder="Govt_job" required="required" />-->
+</td>
+		</tr>
+<tr>
+	<td>
+		<select name ="Self_employed">
+		<option value = '-1'>Are you self employeed</option>
+		<option value = '0'>No</option>
+		<option value = '1'>Yes</option>
+		</select>
+		</td>
+		</tr>
+<tr>
+	<td>
+		<select name ="Never_worked">
+		<option value = '-1'>Never worked</option>
+		<option value = '0'>No</option>
+		<option value = '1'>Yes</option>
+		</select>
+		
+		<!--<input type="text" name="Never_worked" placeholder="Never_worked" required="required" />-->
+		</td>
+		</tr>
+		
+		<tr>
+	<td>
+		<select name ="Private">
+		<option value = '-1'>Private Job</option>
+		<option value = '0'>No</option>
+		<option value = '1'>Yes</option>
+		</select>
+		
+		<!--<input type="text" name="Private" placeholder="Private" required="required" />-->
+
+<!--<input type="text" name="Self_employed" placeholder="Self_employed" required="required" />-->
+</td>
+		</tr>
+<tr>
+	<td>
+		<select name ="formerly_smoked">
+		<option value = '-1'>Formerly smoked</option>
+		<option value = '0'>No</option>
+		<option value = '1'>Yes</option>
+		</select>
+
+<!--<input type="text" name="formerly_smoked" placeholder="formerly_smoked" required="required" />-->
+</td>
+		</tr>
+<tr>
+	<td>
+		<select name ="never_smoked">
+		<option value = '-1'>Never smoked</option>
+		<option value = '0'>No</option>
+		<option value = '1'>Yes</option>
+		</select>
+<!--<input type="text" name="never_smoked" placeholder="never_smoked" required="required" />-->
+</td>
+		</tr>
+<tr>
+	<td>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+	</td>
+		</tr>
+
+<tr>
+	<td style={color:'red'}>
+   {{ prediction_text }}
+   </td>
+		</tr>
+		</table>
+   </center>
+
+ </div>
+
+
+</body>
+</html>
